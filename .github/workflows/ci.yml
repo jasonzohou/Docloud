@@ -29,7 +29,6 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
 
-<<<<<<< backend
       - name: Docker version
         run: docker --version
 
@@ -52,15 +51,3 @@ jobs:
           cd Backend
           docker compose exec web python manage.py test
 
-=======
-      - name: Start services
-        run: |
-          docker compose -f Backend/docker-compose.yml up -d --build
-          docker compose -f Backend/docker-compose.yml ps
-
-      - name: Apply migrations
-        run: docker compose -f Backend/docker-compose.yml exec web python manage.py migrate
-
-      - name: Run backend tests
-        run: docker compose -f Backend/docker-compose.yml exec web python manage.py test
->>>>>>> dev

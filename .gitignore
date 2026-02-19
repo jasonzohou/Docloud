@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.log
+
+# Django
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+
+# Fichiers uploadés par les utilisateurs
+pdfs/
+
+# Environnement / dépendances
+.env
+venv/
+env/
+*.egg-info/
+pip-log.txt
+__pycache__/
+
+# Docker
+*.env
+
+# Node
+node_modules/
+build/
+dist/

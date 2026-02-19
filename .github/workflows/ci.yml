@@ -23,31 +23,30 @@ jobs:
           --health-interval 10s 
           --health-timeout 5s 
           --health-retries 5
+    env:
+      DATABASE_NAME: testdb
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_HOST: localhost
+      DATABASE_PORT: 5432
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v2
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
 
-      - name: Docker version
-        run: docker --version
-
-      - name: List Backend folder
-        run: ls -la Backend
-
-      - name: Start services
+      - name: Install backend dependencies
         run: |
-          cd Backend
-          docker compose up -d --build
-          docker compose ps
+          python -m pip install --upgrade pip
+          pip install -r Backend/requirements.txt
 
       - name: Apply migrations
         run: |
-          cd Backend
-          docker compose exec web python manage.py migrate
+          python Backend/manage.py migrate
 
       - name: Run backend tests
         run: |
-          cd Backend
-          docker compose exec web python manage.py test
-
+          python Backend/manage.py test

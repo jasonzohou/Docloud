@@ -31,11 +31,11 @@ jobs:
 
       - name: Start services
         run: |
-          docker-compose -f Backend/docker-compose.yml up -d --build
-          docker-compose ps
+          docker compose -f Backend/docker-compose.yml up -d --build
+          docker compose -f Backend/docker-compose.yml ps
 
       - name: Apply migrations
-        run: docker-compose -f Backend/docker-compose.yml exec web python manage.py migrate
+        run: docker compose -f Backend/docker-compose.yml exec web python manage.py migrate
 
       - name: Run backend tests
-        run: docker-compose -f Backend/docker-compose.yml exec web python manage.py test
+        run: docker compose -f Backend/docker-compose.yml exec web python manage.py test

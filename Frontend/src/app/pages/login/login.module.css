@@ -1,0 +1,119 @@
+.page_full {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-light); /* Utilise ton gris clair global */
+    padding: 1.5rem;
+  }
+  
+  .login_card {
+    background-color: var(--bg-white);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    max-width: 420px;
+  }
+  
+  .header_section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .logo_icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .brand_name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--main-red); /* Ton rouge DoCloud */
+    margin: 0;
+  }
+  
+  .subtitle {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .input_group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .input_group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  
+  .input_group input {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .input_group input:focus {
+    outline: none;
+    border-color: var(--main-red);
+    box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
+  }
+  
+  .error_message {
+    color: var(--error);
+    background-color: #fff1f2;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+  }
+  
+  .btn_primary {
+    background-color: var(--main-red);
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  
+  .btn_primary:hover:not(:disabled) {
+    background-color: var(--main-red-hover);
+  }
+  
+  .btn_primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .footer_text {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  
+  .link {
+    color: var(--main-red);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }

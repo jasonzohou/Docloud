@@ -1,0 +1,128 @@
+.page_container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-white);
+  color: var(--text-main);
+}
+
+/* TOPBAR */
+.topbar_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem;
+  height: 80px;
+  border-bottom: 1px solid var(--border-color);}
+
+.logo_section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo_icon { font-size: 2rem; }
+.logo_text { font-size: 1.5rem; font-weight: 800; color: var(--main-red); }
+
+/* BOUTONS */
+.link_primary, .link_primary_large {
+  background-color: var(--main-red);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.link_primary_large { padding: 1rem 2rem; font-size: 1.1rem; }
+.link_primary:hover { background-color: var(--main-red-hover); }
+
+.link_secondary {
+  color: #4b5563;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 1.5rem;
+}
+
+/* HERO SECTION */
+.hero_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero_content h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin: 1.5rem 0;
+  color: var(--text-dark);
+}
+
+.hero_content p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* VISUAL MOCKUP */
+.mockup_box {
+  background: var(--bg-light);
+  border: 2px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 350px;
+  box-shadow: var(--shadow-md);
+}
+
+.file_item, .file_item_active {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid #e2e8f0;
+}
+
+.file_item_active {
+  border-color: var(--main-red);
+  color: var(--main-red);
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.1);
+}
+
+/* FEATURES */
+.features_container {
+  padding: 4rem;
+  background-color: var(--bg-light);
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.card_icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}

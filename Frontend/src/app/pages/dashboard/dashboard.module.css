@@ -96,6 +96,7 @@
 .doc_card:hover {
   border-color: var(--main-red);
   transform: translateY(-2px);
+  background: #d700000c;
   box-shadow: var(--shadow-md);
 }
 
@@ -139,4 +140,31 @@
   cursor: pointer;
   padding: 0;
   text-align: right;
+}
+
+.search_container {
+  flex: 0 1 300px;
+  margin-top: 2rem;
+}
+
+.search_input {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--main-red);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search_input:focus {
+  border-color: var(--main-red);
+  box-shadow: var(--shadow-md);
+}
+
+.empty_msg {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem;
+  font-style: italic;
 }

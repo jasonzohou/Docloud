@@ -18,6 +18,7 @@ export default function Dashboard() {
   const [file, setFile] = useState<File | null>(null);
   const [title, setTitle] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchDocuments = async () => {
     const token = localStorage.getItem("access");
@@ -77,6 +78,10 @@ export default function Dashboard() {
     fetchDocuments();
   };
 
+  const filteredDocuments = documents.filter((doc) =>
+    doc.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className={styles.dashboard_container}>
       <header className={styles.topbar}>
@@ -121,26 +126,50 @@ export default function Dashboard() {
 
         <section className={styles.list_section}>
           <h3>Mes Documents ({documents.length})</h3>
+          <div className={styles.search_container}>
+              <input
+                type="text"
+                placeholder="Rechercher un document..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className={styles.search_input}
+              />
+            </div>
           <div className={styles.grid}>
-            {documents.map((doc) => (
-              <div key={doc.id} className={styles.doc_card}>
-                <div className={styles.logo_wrapper}>
-                    <Image 
-                    src={logoImg} 
-                    alt="DoCloud Logo" 
-                    width={30} 
-                    height={30}
-                    />  
+          {filteredDocuments.map((doc) => (
+            <a 
+                key={doc.id} 
+                href={doc.file} 
+                target="_blank" 
+                rel="noreferrer" 
+                className={styles.doc_card_link}
+            >
+                <div className={styles.doc_card}>
+                <div className={styles.doc_icon_wrapper}>
+                    <Image src={logoImg} alt="PDF Icon" width={30} height={30} />  
                 </div>
+                
                 <div className={styles.doc_info}>
-                  <p className={styles.doc_title}>{doc.title}</p>
-                  <span className={styles.doc_date}>{new Date(doc.created_at).toLocaleDateString()}</span>
+                    <p className={styles.doc_title}>{doc.title}</p>
+                    <span className={styles.doc_date}>
+                    {new Date(doc.created_at).toLocaleDateString()}
+                    </span>
                 </div>
+
                 <div className={styles.doc_actions}>
-                  <a href={doc.file} target="_blank" rel="noreferrer" className={styles.btn_view}>Ouvrir</a>
-                  <button onClick={() => handleDelete(doc.id)} className={styles.btn_delete}>Supprimer</button>
+                    <button 
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            handleDelete(doc.id);
+                        }} 
+                        className={styles.btn_delete}
+                    >
+                    Supprimer
+                    </button>
                 </div>
-              </div>
+                </div>
+            </a>
             ))}
           </div>
         </section>

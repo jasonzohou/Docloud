@@ -53,7 +53,7 @@ export default function Register() {
         throw new Error(errorMsg);
       }
 
-      window.location.href = "/login?registered=true";
+      window.location.href = "/pages/login?registered=true";
     } catch (err: any) {
       setError(err.message);
     } finally {

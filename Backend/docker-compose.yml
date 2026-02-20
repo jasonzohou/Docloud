@@ -20,7 +20,8 @@ services:
     container_name: django_app
     command: >
       sh -c "python manage.py migrate &&
-             python manage.py runserver 0.0.0.0:8000"
+        python manage.py shell -c \"from django.contrib.auth.models import User; User.objects.filter(username='root').exists() or User.objects.create_superuser('root', 'root@root.com', 'root')\" &&
+        python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
     ports:

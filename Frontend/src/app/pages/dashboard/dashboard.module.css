@@ -149,7 +149,7 @@
 
 .search_input {
   width: 100%;
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1rem 0.7rem 2.5rem;
   border: 1px solid var(--main-red);
   border-radius: 20px;
   font-size: 0.9rem;
@@ -167,4 +167,124 @@
   color: var(--text-muted);
   padding: 2rem;
   font-style: italic;
+}
+
+.btn_new_doc {
+  background-color: var(--main-red);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  margin-top: 2rem;
+  margin-left: 48rem;
+  font-size: 0.8rem;
+}
+
+.btn_new_doc:hover {
+  opacity: 0.7;
+}
+
+.modal_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+/* Contenu Modale */
+.modal_content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: modalScale 0.3s ease-out;
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.close_btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.upload_form_vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input_group label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn_submit_upload {
+  background-color: var(--main-red);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.btn_submit_upload:disabled {
+  background-color: #ccc;
+}
+
+.trash_default{
+  opacity: 0.6;
+}
+
+.trash_default:hover{
+  opacity: 1;
+}
+
+.search_container {
+  flex: 0 1 350px;
+}
+
+.search_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search_icon {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  opacity: 0.5;
 }

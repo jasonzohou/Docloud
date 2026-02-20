@@ -11,6 +11,7 @@ class RegisterView(generics.CreateAPIView):
 
 class PdfListCreateView(generics.ListCreateAPIView):
     serializer_class = PdfSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         return Pdf.objects.filter(user=self.request.user)
@@ -20,6 +21,7 @@ class PdfListCreateView(generics.ListCreateAPIView):
 
 class PdfDeleteView(generics.DestroyAPIView):
     serializer_class = PdfSerializer
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Pdf.objects.all()
 
     def get_queryset(self):

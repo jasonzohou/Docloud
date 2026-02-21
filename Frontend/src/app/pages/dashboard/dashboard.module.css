@@ -234,6 +234,17 @@
   font-size: 0.9rem;
 }
 
+.btn_submit_upload {
+  background-color: var(--main-red);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
 .btn_submit_upload:disabled {
   background-color: #ccc;
 }

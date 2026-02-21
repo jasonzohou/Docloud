@@ -21,10 +21,16 @@ class UserSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
+class UserInfoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email')
+
+
 class PdfSerializer(serializers.ModelSerializer):
     file = serializers.FileField(validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
+    owner_name = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = Pdf
-        fields = ('id', 'title','file', 'user', 'created_at')
-        read_only_fields = ('user',)
+        fields = ('id', 'title','file', 'owner_name', 'created_at')

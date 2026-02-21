@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
 from django.contrib.auth.models import User
-from .serializers import UserSerializer, PdfSerializer
+from .serializers import UserSerializer, PdfSerializer, UserInfoSerializer
 from .models.pdf_mod import Pdf
 
 class RegisterView(generics.CreateAPIView):
@@ -26,3 +26,9 @@ class PdfDeleteView(generics.DestroyAPIView):
 
     def get_queryset(self):
         return Pdf.objects.filter(user=self.request.user)
+
+
+class UserDetailView(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserInfoSerializer
+    permission_classes = [permissions.IsAuthenticated]

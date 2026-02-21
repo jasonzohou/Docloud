@@ -13,6 +13,7 @@ interface PDFDocument {
   file: string;
   title: string;
   created_at: string;
+  owner_name: string;
 }
 
 export default function Dashboard() {
@@ -130,32 +131,36 @@ export default function Dashboard() {
         <section className={styles.list_section}>
           <h3>Mes Documents ({filteredDocuments.length})</h3>
           <div className={styles.grid}>
-            {filteredDocuments.map((doc) => (
+          {filteredDocuments.map((doc) => (
             <a key={doc.id} href={doc.file} target="_blank" rel="noreferrer" className={styles.doc_card_link}>
-                <div className={styles.doc_card}>
-                  <div className={styles.doc_icon_wrapper}>
+                <div className={styles.doc_card}>                
+                <div className={styles.col_icon}>
                     <Image src={logoImg} alt="PDF Icon" width={30} height={30} />  
-                  </div>
-                  <div className={styles.doc_info}>
-                    <p className={styles.doc_title}>{doc.title}</p>
-                    <span className={styles.doc_date}>{new Date(doc.created_at).toLocaleDateString()}</span>
-                  </div>
-                  <div className={styles.doc_actions}>
-                    <button 
-                      onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleDelete(doc.id); }} 
-                      className={styles.btn_delete}
-                    >
-                        <Image 
-                        src={trashBlack} 
-                            alt="Supprimer" 
-                            className={styles.trash_default}
-                            width={24}
-                            height={24}
-                        />
-                    </button>
-                  </div>
                 </div>
-              </a>
+                <div className={styles.col_title}>
+                    <p className={styles.doc_title}>{doc.title}</p>
+                </div>
+                <div className={styles.col_date}>
+                    <span className={styles.doc_date}>
+                    {new Date(doc.created_at).toLocaleDateString()}
+                    </span>
+                </div>
+
+                <div className={styles.col_user}>
+                    <span className={styles.doc_user}>@{doc.owner_name}</span>
+                </div>
+
+                <div className={styles.col_actions}>
+                    <button 
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleDelete(doc.id); }} 
+                    className={styles.btn_delete}
+                    >
+                    <Image src={trashBlack} alt="Supprimer" width={20} height={20} />
+                    </button>
+                </div>
+
+                </div>
+            </a>
             ))}
           </div>
         </section>
